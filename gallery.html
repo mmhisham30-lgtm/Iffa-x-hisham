@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Iffa × Hisham | Wedding Gallery</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ivory: #fbfaf7;
+      --baby-blue: #edf8ff;
+      --soft-blue: #d5edfb;
+      --dusty-blue: #8ebbd8;
+      --navy: #27495f;
+      --deep-navy: #183747;
+      --text: #334955;
+      --muted: #748995;
+      --white: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 0% 0%,
+          rgba(207, 234, 255, 0.75) 0%,
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 100% 100%,
+          rgba(218, 240, 255, 0.75) 0%,
+          transparent 30%
+        ),
+        linear-gradient(
+          180deg,
+          #fffdfa 0%,
+          #f7fbfd 48%,
+          #f1f9fd 100%
+        );
+
+      color: var(--text);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+    }
+
+    /* MAIN CONTAINER */
+
+    .container {
+      width: min(1180px, calc(100% - 30px));
+      margin: 0 auto;
+
+      padding:
+        48px 0
+        65px;
+    }
+
+    /* HEADER */
+
+    .header {
+      max-width: 800px;
+
+      margin:
+        0 auto
+        42px;
+
+      text-align: center;
+    }
+
+    .small-title {
+      margin-bottom: 16px;
+
+      color: var(--dusty-blue);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: 6px;
+    }
+
+    h1 {
+      margin:
+        0 0
+        14px;
+
+      color: var(--navy);
+
+      font-size:
+        clamp(52px, 8vw, 82px);
+
+      font-weight: normal;
+
+      line-height: 0.95;
+
+      letter-spacing: -3px;
+    }
+
+    .x-symbol {
+      display: inline-block;
+
+      margin:
+        0 8px;
+
+      color: var(--dusty-blue);
+
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    .date {
+      margin-bottom: 22px;
+
+      color: var(--muted);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 13px;
+      font-weight: 500;
+
+      letter-spacing: 4px;
+    }
+
+    .subtitle {
+      max-width: 620px;
+
+      margin: 0 auto;
+
+      color: var(--muted);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 15px;
+
+      line-height: 1.8;
+    }
+
+    /* BUTTONS */
+
+    .top-actions {
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      gap: 12px;
+
+      flex-wrap: wrap;
+
+      margin-top: 27px;
+    }
+
+    .top-link {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-height: 48px;
+
+      padding:
+        0 20px;
+
+      border-radius: 999px;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      text-decoration: none;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .back-link {
+      color: var(--navy);
+
+      background:
+        rgba(237, 248, 255, 0.85);
+
+      border:
+        1px solid
+        rgba(142, 187, 216, 0.42);
+    }
+
+    .upload-link {
+      color: var(--white);
+
+      background:
+        linear-gradient(
+          135deg,
+          #4d829f,
+          #27495f
+        );
+
+      border:
+        1px solid
+        rgba(255,255,255,0.18);
+
+      box-shadow:
+        0 10px 25px
+        rgba(39, 73, 95, 0.18);
+    }
+
+    .top-link:hover {
+      transform:
+        translateY(-2px);
+    }
+
+    .upload-link:hover {
+      box-shadow:
+        0 14px 30px
+        rgba(39, 73, 95, 0.24);
+    }
+
+    .top-link:active {
+      transform:
+        scale(0.98);
+    }
+
+    /* GALLERY STATUS */
+
+    #galleryStatus {
+      min-height: 26px;
+
+      margin:
+        0 0
+        30px;
+
+      text-align: center;
+
+      color: var(--navy);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 14px;
+    }
+
+    /* 
+       WEDDING MASONRY GALLERY
+
+       Columns allow portrait, landscape and square
+       photos to keep their original ratio.
+    */
+
+    .gallery {
+      width: 100%;
+
+      columns: 3;
+      column-gap: 18px;
+    }
+
+    /* CARD */
+
+    .card {
+      position: relative;
+
+      display: inline-block;
+
+      width: 100%;
+
+      margin:
+        0 0
+        18px;
+
+      vertical-align: top;
+
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+
+      overflow: hidden;
+
+      background:
+        rgba(255,255,255,0.94);
+
+      border:
+        1px solid
+        rgba(142, 187, 216, 0.28);
+
+      border-radius: 22px;
+
+      box-shadow:
+        0 14px 40px
+        rgba(39, 73, 95, 0.09);
+
+      cursor: pointer;
+
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+    }
+
+    .card:hover {
+      transform:
+        translateY(-4px);
+
+      box-shadow:
+        0 20px 48px
+        rgba(39, 73, 95, 0.14);
+    }
+
+    .card:active {
+      transform:
+        scale(0.99);
+    }
+
+    /* MEDIA - NO CROPPING */
+
+    .media {
+      width: 100%;
+      height: auto;
+
+      display: block;
+
+      object-fit: contain;
+
+      background:
+        #f2f8fb;
+    }
+
+    video.media {
+      width: 100%;
+      height: auto;
+
+      background:
+        var(--deep-navy);
+    }
+
+    /* CARD TEXT */
+
+    .card-body {
+      position: relative;
+
+      padding:
+        18px 18px
+        20px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,0.98),
+          rgba(248,252,255,0.96)
+        );
+    }
+
+    .card-body::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 18px;
+
+      width: 38px;
+      height: 2px;
+
+      border-radius: 999px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--dusty-blue),
+          var(--soft-blue)
+        );
+    }
+
+    .guest-name {
+      margin:
+        0 0
+        7px;
+
+      color: var(--navy);
+
+      font-size: 18px;
+
+      line-height: 1.25;
+    }
+
+    .wish {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 13px;
+
+      line-height: 1.6;
+
+      overflow-wrap: anywhere;
+    }
+
+    /* EMPTY GALLERY */
+
+    .empty {
+      max-width: 540px;
+
+      margin:
+        30px auto;
+
+      padding:
+        48px 24px;
+
+      text-align: center;
+
+      color: var(--muted);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      border:
+        1px dashed
+        rgba(142,187,216,0.55);
+
+      border-radius: 24px;
+
+      background:
+        rgba(255,255,255,0.72);
+
+      box-shadow:
+        0 12px 35px
+        rgba(39,73,95,0.05);
+    }
+
+    /* FOOTER */
+
+    .footer {
+      margin-top: 50px;
+
+      text-align: center;
+
+      color: #8aa4b3;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 10px;
+      font-weight: 600;
+
+      letter-spacing: 3px;
+    }
+
+    /* =========================
+       FULLSCREEN VIEWER
+       ========================= */
+
+    .lightbox {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 9999;
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 22px;
+
+      background:
+        rgba(15, 39, 52, 0.94);
+
+      backdrop-filter:
+        blur(10px);
+
+      -webkit-backdrop-filter:
+        blur(10px);
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+
+      width:
+        min(100%, 1100px);
+
+      height:
+        min(92vh, 900px);
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+    }
+
+    #lightboxMedia {
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox img,
+    .lightbox video {
+      display: block;
+
+      max-width: 100%;
+      max-height: 88vh;
+
+      width: auto;
+      height: auto;
+
+      object-fit: contain;
+
+      border-radius: 16px;
+
+      background: #ffffff;
+
+      box-shadow:
+        0 28px 90px
+        rgba(0,0,0,0.40);
+    }
+
+    .close-lightbox {
+      position: fixed;
+
+      top: 22px;
+      right: 22px;
+
+      z-index: 10001;
+
+      width: 46px;
+      height: 46px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 0;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,0.96);
+
+      color: var(--navy);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 25px;
+      font-weight: 300;
+
+      line-height: 1;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.20);
+    }
+
+    /* TABLET */
+
+    @media (max-width: 900px) {
+
+      .container {
+        width:
+          min(100% - 26px, 1180px);
+
+        padding-top:
+          38px;
+      }
+
+      .gallery {
+        columns: 2;
+        column-gap: 14px;
+      }
+
+      .card {
+        margin-bottom: 14px;
+      }
+
+      h1 {
+        font-size:
+          clamp(54px, 10vw, 76px);
+      }
+    }
+
+    /* PHONE */
+
+    @media (max-width: 520px) {
+
+      .container {
+        width:
+          calc(100% - 18px);
+
+        padding:
+          30px 0
+          45px;
+      }
+
+      .header {
+        margin-bottom:
+          32px;
+      }
+
+      .small-title {
+        font-size: 9px;
+        letter-spacing: 4px;
+      }
+
+      h1 {
+        font-size:
+          clamp(43px, 14vw, 60px);
+
+        letter-spacing: -2px;
+      }
+
+      .x-symbol {
+        margin:
+          0 3px;
+      }
+
+      .date {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+      }
+
+      .subtitle {
+        padding:
+          0 12px;
+
+        font-size: 13px;
+
+        line-height: 1.65;
+      }
+
+      .top-actions {
+        gap: 8px;
+
+        margin-top: 22px;
+      }
+
+      .top-link {
+        min-height: 43px;
+
+        padding:
+          0 15px;
+
+        font-size: 12px;
+      }
+
+      #galleryStatus {
+        margin-bottom:
+          20px;
+
+        font-size: 13px;
+      }
+
+      /*
+        Keep two-column photo wall
+        on normal phones.
+      */
+
+      .gallery {
+        columns: 2;
+        column-gap: 9px;
+      }
+
+      .card {
+        margin-bottom: 9px;
+
+        border-radius: 15px;
+      }
+
+      .card-body {
+        padding:
+          13px 12px
+          14px;
+      }
+
+      .card-body::before {
+        left: 12px;
+
+        width: 28px;
+      }
+
+      .guest-name {
+        margin-bottom: 5px;
+
+        font-size: 15px;
+      }
+
+      .wish {
+        font-size: 11px;
+
+        line-height: 1.45;
+      }
+
+      .footer {
+        margin-top: 38px;
+
+        font-size: 9px;
+
+        letter-spacing: 2px;
+      }
+
+      .lightbox {
+        padding: 10px;
+      }
+
+      .lightbox-content {
+        width: 100%;
+        height: 100%;
+      }
+
+      .lightbox img,
+      .lightbox video {
+        max-width: 100%;
+        max-height: 88vh;
+
+        border-radius: 12px;
+      }
+
+      .close-lightbox {
+        top: 15px;
+        right: 15px;
+
+        width: 42px;
+        height: 42px;
+
+        font-size: 23px;
+      }
+    }
+
+    /* VERY SMALL PHONE */
+
+    @media (max-width: 340px) {
+
+      .gallery {
+        columns: 1;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <main class="container">
+
+    <div class="header">
+
+      <div class="small-title">
+        OUR WEDDING MEMORIES
+      </div>
+
+      <h1>
+        Iffa
+        <span class="x-symbol">×</span>
+        Hisham
+      </h1>
+
+      <div class="date">
+        02 • JANUARY • 2027
+      </div>
+
+      <div class="subtitle">
+        A collection of beautiful moments
+        shared by the people we love.
+        Thank you for being part of our day. 🤍
+      </div>
+
+
+      <div class="top-actions">
+
+        <a
+          href="index.html"
+          class="top-link back-link"
+        >
+          ← Back
+        </a>
+
+        <a
+          href="index.html"
+          class="top-link upload-link"
+        >
+          📷 Share Your Memories
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div id="galleryStatus">
+      Loading gallery...
+    </div>
+
+
+    <div
+      id="gallery"
+      class="gallery"
+    ></div>
+
+
+    <div class="footer">
+      IFFA × HISHAM • 2027
+    </div>
+
+  </main>
+
+
+  <!-- FULLSCREEN PHOTO / VIDEO VIEWER -->
+
+  <div
+    id="lightbox"
+    class="lightbox"
+  >
+
+    <div class="lightbox-content">
+
+      <button
+        id="closeLightbox"
+        class="close-lightbox"
+        type="button"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <div id="lightboxMedia"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- SUPABASE -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+  ></script>
+
+
+  <!-- GALLERY LOGIC -->
+
+  <script src="gallery.js"></script>
+
+</body>
+</html>

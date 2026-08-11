@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Iffa × Hisham | Admin Dashboard</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ivory: #fbfaf7;
+      --baby-blue: #edf8ff;
+      --soft-blue: #d5edfb;
+      --dusty-blue: #8ebbd8;
+      --navy: #27495f;
+      --deep-navy: #183747;
+      --text: #334955;
+      --muted: #748995;
+      --white: #ffffff;
+
+      --green-bg: #e9f6ee;
+      --green-text: #2f7650;
+
+      --red-bg: #fbecec;
+      --red-text: #9b4a4a;
+
+      --delete-bg: #f8e9ec;
+      --delete-text: #8b3f4a;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 0% 0%,
+          rgba(207,234,255,0.78) 0%,
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 100% 100%,
+          rgba(218,240,255,0.78) 0%,
+          transparent 30%
+        ),
+        linear-gradient(
+          180deg,
+          #fffdfa 0%,
+          #f7fbfd 50%,
+          #f1f9fd 100%
+        );
+
+      color: var(--text);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+    }
+
+    /* =========================
+       MAIN CONTAINER
+       ========================= */
+
+    .container {
+      width:
+        min(1180px, calc(100% - 32px));
+
+      margin:
+        0 auto;
+
+      padding:
+        50px 0
+        70px;
+    }
+
+    /* =========================
+       HEADER
+       ========================= */
+
+    .header {
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+
+      gap:
+        24px;
+
+      margin-bottom:
+        34px;
+
+      padding:
+        22px 24px;
+
+      background:
+        rgba(255,255,255,0.64);
+
+      border:
+        1px solid
+        rgba(142,187,216,0.22);
+
+      border-radius:
+        24px;
+
+      box-shadow:
+        0 12px 35px
+        rgba(39,73,95,0.06);
+
+      backdrop-filter:
+        blur(10px);
+
+      -webkit-backdrop-filter:
+        blur(10px);
+    }
+
+    .header-text {
+      min-width: 0;
+    }
+
+    .small-title {
+      margin-bottom:
+        9px;
+
+      color:
+        var(--dusty-blue);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        10px;
+
+      font-weight:
+        700;
+
+      letter-spacing:
+        5px;
+    }
+
+    h1 {
+      margin:
+        0;
+
+      color:
+        var(--navy);
+
+      font-size:
+        clamp(40px, 7vw, 62px);
+
+      font-weight:
+        normal;
+
+      line-height:
+        1;
+
+      letter-spacing:
+        -2px;
+    }
+
+    .x-symbol {
+      display:
+        inline-block;
+
+      margin:
+        0 4px;
+
+      color:
+        var(--dusty-blue);
+
+      font-style:
+        italic;
+    }
+
+    .admin-label {
+      margin-top:
+        10px;
+
+      color:
+        var(--muted);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        12px;
+    }
+
+    /* =========================
+       LOGOUT
+       ========================= */
+
+    .logout-btn {
+      flex-shrink:
+        0;
+
+      min-height:
+        44px;
+
+      padding:
+        0 19px;
+
+      border:
+        1px solid
+        rgba(142,187,216,0.36);
+
+      border-radius:
+        999px;
+
+      background:
+        rgba(237,248,255,0.88);
+
+      color:
+        var(--navy);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        13px;
+
+      font-weight:
+        700;
+
+      cursor:
+        pointer;
+
+      box-shadow:
+        0 8px 20px
+        rgba(39,73,95,0.07);
+
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+    }
+
+    .logout-btn:hover {
+      transform:
+        translateY(-2px);
+
+      background:
+        white;
+
+      box-shadow:
+        0 12px 26px
+        rgba(39,73,95,0.12);
+    }
+
+    .logout-btn:active {
+      transform:
+        scale(0.98);
+    }
+
+    /* =========================
+       CONTROL BAR
+       ========================= */
+
+    .control-panel {
+      display: flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        16px;
+
+      flex-wrap:
+        wrap;
+
+      margin-bottom:
+        24px;
+
+      padding:
+        14px;
+
+      background:
+        rgba(255,255,255,0.60);
+
+      border:
+        1px solid
+        rgba(142,187,216,0.20);
+
+      border-radius:
+        20px;
+    }
+
+    .tabs {
+      display: flex;
+
+      gap:
+        9px;
+
+      flex-wrap:
+        wrap;
+    }
+
+    .tab-btn {
+      min-height:
+        43px;
+
+      padding:
+        0 18px;
+
+      border:
+        1px solid
+        rgba(142,187,216,0.35);
+
+      border-radius:
+        999px;
+
+      background:
+        rgba(237,248,255,0.84);
+
+      color:
+        var(--navy);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        13px;
+
+      font-weight:
+        700;
+
+      cursor:
+        pointer;
+
+      transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .tab-btn:hover {
+      transform:
+        translateY(-1px);
+    }
+
+    .tab-btn.active {
+      color:
+        white;
+
+      background:
+        linear-gradient(
+          135deg,
+          #4d829f,
+          #27495f
+        );
+
+      border-color:
+        transparent;
+
+      box-shadow:
+        0 9px 22px
+        rgba(39,73,95,0.17);
+    }
+
+    .tab-btn:active {
+      transform:
+        scale(0.98);
+    }
+
+    .public-gallery-link {
+      min-height:
+        43px;
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      padding:
+        0 17px;
+
+      border:
+        1px solid
+        rgba(142,187,216,0.35);
+
+      border-radius:
+        999px;
+
+      background:
+        rgba(255,255,255,0.80);
+
+      color:
+        var(--navy);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        12px;
+
+      font-weight:
+        700;
+
+      text-decoration:
+        none;
+
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .public-gallery-link:hover {
+      transform:
+        translateY(-1px);
+
+      box-shadow:
+        0 8px 20px
+        rgba(39,73,95,0.08);
+    }
+
+    /* =========================
+       STATUS
+       ========================= */
+
+    #statusMessage {
+      min-height:
+        28px;
+
+      margin:
+        0 0
+        18px;
+
+      padding-left:
+        4px;
+
+      color:
+        var(--navy);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        14px;
+
+      line-height:
+        1.5;
+    }
+
+    /* =========================
+       SUBMISSION GRID
+       ========================= */
+
+    .gallery {
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(
+          auto-fill,
+          minmax(270px, 1fr)
+        );
+
+      gap:
+        20px;
+
+      align-items:
+        start;
+    }
+
+    /* =========================
+       CARD
+       ========================= */
+
+    .card {
+      overflow:
+        hidden;
+
+      background:
+        rgba(255,255,255,0.95);
+
+      border:
+        1px solid
+        rgba(142,187,216,0.27);
+
+      border-radius:
+        22px;
+
+      box-shadow:
+        0 14px 40px
+        rgba(39,73,95,0.09);
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 20px 48px
+        rgba(39,73,95,0.13);
+    }
+
+    /* =========================
+       MEDIA
+       ========================= */
+
+    .media {
+      width:
+        100%;
+
+      height:
+        290px;
+
+      display:
+        block;
+
+      object-fit:
+        contain;
+
+      background:
+        #f2f8fb;
+    }
+
+    video.media {
+      background:
+        var(--deep-navy);
+    }
+
+    /* =========================
+       CARD DETAILS
+       ========================= */
+
+    .card-body {
+      position:
+        relative;
+
+      padding:
+        18px 18px
+        20px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,0.99),
+          rgba(248,252,255,0.97)
+        );
+    }
+
+    .card-body::before {
+      content:
+        "";
+
+      position:
+        absolute;
+
+      top:
+        0;
+
+      left:
+        18px;
+
+      width:
+        40px;
+
+      height:
+        2px;
+
+      border-radius:
+        999px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--dusty-blue),
+          var(--soft-blue)
+        );
+    }
+
+    .guest-name {
+      margin-bottom:
+        7px;
+
+      color:
+        var(--navy);
+
+      font-size:
+        18px;
+
+      line-height:
+        1.3;
+    }
+
+    .wish {
+      min-height:
+        20px;
+
+      margin-bottom:
+        12px;
+
+      color:
+        var(--muted);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        13px;
+
+      line-height:
+        1.55;
+
+      overflow-wrap:
+        anywhere;
+    }
+
+    .meta {
+      margin-bottom:
+        16px;
+
+      color:
+        #98aab4;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        11px;
+    }
+
+    /* =========================
+       ACTION BUTTONS
+       ========================= */
+
+    .actions {
+      display:
+        flex;
+
+      gap:
+        8px;
+
+      flex-wrap:
+        wrap;
+    }
+
+    .action-btn {
+      flex:
+        1 1 90px;
+
+      min-height:
+        42px;
+
+      padding:
+        0 12px;
+
+      border:
+        none;
+
+      border-radius:
+        12px;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        12px;
+
+      font-weight:
+        700;
+
+      cursor:
+        pointer;
+
+      transition:
+        transform 0.18s ease,
+        opacity 0.18s ease,
+        filter 0.18s ease;
+    }
+
+    .action-btn:hover {
+      filter:
+        brightness(0.98);
+    }
+
+    .action-btn:active {
+      transform:
+        scale(0.98);
+    }
+
+    .action-btn:disabled {
+      opacity:
+        0.48;
+
+      cursor:
+        not-allowed;
+
+      transform:
+        none;
+    }
+
+    .approve {
+      color:
+        var(--green-text);
+
+      background:
+        var(--green-bg);
+    }
+
+    .reject {
+      color:
+        var(--red-text);
+
+      background:
+        var(--red-bg);
+    }
+
+    .delete {
+      color:
+        var(--delete-text);
+
+      background:
+        var(--delete-bg);
+    }
+
+    .delete:hover {
+      background:
+        #f3dce1;
+    }
+
+    /* =========================
+       EMPTY STATE
+       ========================= */
+
+    .empty {
+      grid-column:
+        1 / -1;
+
+      width:
+        min(100%, 580px);
+
+      margin:
+        22px auto;
+
+      padding:
+        52px 24px;
+
+      text-align:
+        center;
+
+      color:
+        var(--muted);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        14px;
+
+      border:
+        1px dashed
+        rgba(142,187,216,0.55);
+
+      border-radius:
+        24px;
+
+      background:
+        rgba(255,255,255,0.72);
+
+      box-shadow:
+        0 12px 35px
+        rgba(39,73,95,0.05);
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    .footer {
+      margin-top:
+        50px;
+
+      text-align:
+        center;
+
+      color:
+        #8aa4b3;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        10px;
+
+      font-weight:
+        600;
+
+      letter-spacing:
+        3px;
+    }
+
+    /* =========================
+       TABLET
+       ========================= */
+
+    @media (max-width: 800px) {
+
+      .container {
+        width:
+          calc(100% - 22px);
+
+        padding:
+          34px 0
+          55px;
+      }
+
+      .header {
+        padding:
+          19px 20px;
+      }
+
+      h1 {
+        font-size:
+          46px;
+      }
+
+      .gallery {
+        grid-template-columns:
+          repeat(
+            2,
+            minmax(0, 1fr)
+          );
+
+        gap:
+          14px;
+      }
+
+      .media {
+        height:
+          250px;
+      }
+    }
+
+    /* =========================
+       PHONE
+       ========================= */
+
+    @media (max-width: 560px) {
+
+      .container {
+        width:
+          calc(100% - 16px);
+
+        padding:
+          20px 0
+          45px;
+      }
+
+      .header {
+        align-items:
+          flex-start;
+
+        padding:
+          18px 16px;
+
+        border-radius:
+          20px;
+
+        margin-bottom:
+          18px;
+      }
+
+      .small-title {
+        font-size:
+          8px;
+
+        letter-spacing:
+          3px;
+      }
+
+      h1 {
+        font-size:
+          36px;
+
+        letter-spacing:
+          -1.5px;
+      }
+
+      .admin-label {
+        font-size:
+          10px;
+      }
+
+      .logout-btn {
+        min-height:
+          38px;
+
+        padding:
+          0 13px;
+
+        font-size:
+          11px;
+      }
+
+      .control-panel {
+        padding:
+          10px;
+
+        margin-bottom:
+          18px;
+
+        border-radius:
+          17px;
+      }
+
+      .tabs {
+        width:
+          100%;
+
+        display:
+          grid;
+
+        grid-template-columns:
+          repeat(3, 1fr);
+
+        gap:
+          6px;
+      }
+
+      .tab-btn {
+        min-height:
+          39px;
+
+        padding:
+          0 7px;
+
+        font-size:
+          10px;
+      }
+
+      .public-gallery-link {
+        width:
+          100%;
+      }
+
+      #statusMessage {
+        font-size:
+          12px;
+
+        margin-bottom:
+          13px;
+      }
+
+      .gallery {
+        grid-template-columns:
+          1fr;
+
+        gap:
+          13px;
+      }
+
+      .media {
+        width:
+          100%;
+
+        height:
+          auto;
+
+        max-height:
+          440px;
+
+        object-fit:
+          contain;
+      }
+
+      .card {
+        border-radius:
+          18px;
+      }
+
+      .card-body {
+        padding:
+          15px;
+      }
+
+      .guest-name {
+        font-size:
+          17px;
+      }
+
+      .actions {
+        gap:
+          6px;
+      }
+
+      .action-btn {
+        min-height:
+          40px;
+
+        font-size:
+          11px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <main class="container">
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+      <div class="header-text">
+
+        <div class="small-title">
+          WEDDING GALLERY ADMIN
+        </div>
+
+        <h1>
+          Iffa
+          <span class="x-symbol">×</span>
+          Hisham
+        </h1>
+
+        <div class="admin-label">
+          Memory Management Dashboard
+        </div>
+
+      </div>
+
+
+      <button
+        id="logoutButton"
+        class="logout-btn"
+        type="button"
+      >
+        Logout
+      </button>
+
+    </header>
+
+
+    <!-- CONTROLS -->
+
+    <section class="control-panel">
+
+      <div class="tabs">
+
+        <button
+          type="button"
+          class="tab-btn active"
+          data-status="pending"
+        >
+          Pending
+        </button>
+
+
+        <button
+          type="button"
+          class="tab-btn"
+          data-status="approved"
+        >
+          Approved
+        </button>
+
+
+        <button
+          type="button"
+          class="tab-btn"
+          data-status="rejected"
+        >
+          Rejected
+        </button>
+
+      </div>
+
+
+      <a
+        href="gallery.html"
+        class="public-gallery-link"
+        target="_blank"
+      >
+        ✨ View Gallery
+      </a>
+
+    </section>
+
+
+    <!-- STATUS -->
+
+    <div id="statusMessage">
+      Loading submissions...
+    </div>
+
+
+    <!-- SUBMISSIONS -->
+
+    <div
+      id="gallery"
+      class="gallery"
+    ></div>
+
+
+    <div class="footer">
+      IFFA × HISHAM • ADMIN • 2027
+    </div>
+
+  </main>
+
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+  ></script>
+
+  <script src="dashboard.js?v=2"></script>
+
+</body>
+</html>

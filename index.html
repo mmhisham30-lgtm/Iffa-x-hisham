@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Iffa × Hisham | Wedding Memories</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ivory: #fbfaf7;
+      --baby-blue: #edf8ff;
+      --soft-blue: #d5edfb;
+      --dusty-blue: #8ebbd8;
+      --navy: #27495f;
+      --deep-navy: #183747;
+      --text: #334955;
+      --muted: #748995;
+      --white: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 0% 0%,
+          rgba(207,234,255,0.75) 0%,
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 100% 100%,
+          rgba(218,240,255,0.75) 0%,
+          transparent 30%
+        ),
+        linear-gradient(
+          180deg,
+          #fffdfa 0%,
+          #f7fbfd 50%,
+          #f1f9fd 100%
+        );
+
+      color: var(--text);
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+    }
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        36px 18px;
+    }
+
+    .card {
+      width: min(100%, 650px);
+
+      padding:
+        48px 38px
+        42px;
+
+      text-align: center;
+
+      background:
+        rgba(255,255,255,0.86);
+
+      border:
+        1px solid
+        rgba(142,187,216,0.30);
+
+      border-radius:
+        30px;
+
+      box-shadow:
+        0 24px 70px
+        rgba(39,73,95,0.11);
+
+      backdrop-filter:
+        blur(12px);
+
+      -webkit-backdrop-filter:
+        blur(12px);
+    }
+
+    .small-title {
+      margin-bottom: 17px;
+
+      color:
+        var(--dusty-blue);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: 6px;
+    }
+
+    h1 {
+      margin:
+        0 0
+        14px;
+
+      color:
+        var(--navy);
+
+      font-size:
+        clamp(52px, 10vw, 82px);
+
+      font-weight: normal;
+
+      line-height: 0.95;
+
+      letter-spacing: -3px;
+    }
+
+    .x-symbol {
+      display: inline-block;
+
+      margin:
+        0 7px;
+
+      color:
+        var(--dusty-blue);
+
+      font-style:
+        italic;
+
+      font-weight: 300;
+    }
+
+    .date {
+      margin-bottom:
+        28px;
+
+      color:
+        var(--muted);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        13px;
+
+      letter-spacing:
+        4px;
+    }
+
+    .welcome {
+      margin-bottom:
+        10px;
+
+      color:
+        var(--navy);
+
+      font-size:
+        22px;
+    }
+
+    .description {
+      max-width:
+        510px;
+
+      margin:
+        0 auto
+        28px;
+
+      color:
+        var(--muted);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        15px;
+
+      line-height:
+        1.75;
+    }
+
+    .form {
+      width: 100%;
+
+      max-width:
+        455px;
+
+      margin:
+        0 auto;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+
+      padding:
+        15px 16px;
+
+      margin-bottom:
+        12px;
+
+      border:
+        1px solid
+        rgba(142,187,216,0.35);
+
+      border-radius:
+        14px;
+
+      background:
+        rgba(255,255,255,0.96);
+
+      color:
+        var(--text);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        15px;
+
+      outline:
+        none;
+
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    textarea {
+      min-height:
+        110px;
+
+      resize:
+        vertical;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      border-color:
+        var(--dusty-blue);
+
+      box-shadow:
+        0 0 0 4px
+        rgba(142,187,216,0.13);
+    }
+
+    #photoInput {
+      display: none;
+    }
+
+    .button-row {
+      display: flex;
+
+      gap: 10px;
+
+      margin-top:
+        5px;
+    }
+
+    .upload-btn {
+      flex: 1;
+
+      min-height:
+        50px;
+
+      display: flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      padding:
+        14px 18px;
+
+      border-radius:
+        999px;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        14px;
+
+      font-weight:
+        700;
+
+      cursor:
+        pointer;
+
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+    }
+
+    .choose-btn {
+      background:
+        rgba(237,248,255,0.90);
+
+      color:
+        var(--navy);
+
+      border:
+        1px solid
+        rgba(142,187,216,0.42);
+    }
+
+    .send-btn {
+      border:
+        none;
+
+      background:
+        linear-gradient(
+          135deg,
+          #4d829f,
+          #27495f
+        );
+
+      color:
+        var(--white);
+
+      box-shadow:
+        0 10px 25px
+        rgba(39,73,95,0.18);
+    }
+
+    .upload-btn:hover {
+      transform:
+        translateY(-2px);
+    }
+
+    .send-btn:hover {
+      box-shadow:
+        0 14px 30px
+        rgba(39,73,95,0.24);
+    }
+
+    .upload-btn:active {
+      transform:
+        scale(0.98);
+    }
+
+    .send-btn:disabled {
+      opacity:
+        0.55;
+
+      cursor:
+        not-allowed;
+
+      transform:
+        none;
+    }
+
+    #uploadStatus {
+      min-height:
+        25px;
+
+      margin-top:
+        18px;
+
+      color:
+        var(--navy);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        14px;
+
+      line-height:
+        1.5;
+    }
+
+    .divider {
+      width:
+        76px;
+
+      height:
+        1px;
+
+      margin:
+        30px auto
+        20px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--dusty-blue),
+          transparent
+        );
+    }
+
+    .gallery-link {
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      min-height:
+        44px;
+
+      padding:
+        0 19px;
+
+      border:
+        1px solid
+        rgba(142,187,216,0.40);
+
+      border-radius:
+        999px;
+
+      background:
+        rgba(237,248,255,0.82);
+
+      color:
+        var(--navy);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        13px;
+
+      font-weight:
+        700;
+
+      text-decoration:
+        none;
+
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .gallery-link:hover {
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 10px 25px
+        rgba(39,73,95,0.08);
+    }
+
+    .footer {
+      margin-top:
+        28px;
+
+      color:
+        #8aa4b3;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:
+        10px;
+
+      font-weight:
+        600;
+
+      letter-spacing:
+        3px;
+    }
+
+    @media (max-width: 600px) {
+
+      .hero {
+        padding:
+          18px 11px;
+      }
+
+      .card {
+        padding:
+          39px 22px
+          35px;
+
+        border-radius:
+          24px;
+      }
+
+      .small-title {
+        font-size:
+          9px;
+
+        letter-spacing:
+          4px;
+      }
+
+      h1 {
+        font-size:
+          clamp(45px, 14vw, 60px);
+
+        letter-spacing:
+          -2px;
+      }
+
+      .x-symbol {
+        margin:
+          0 3px;
+      }
+
+      .date {
+        font-size:
+          10px;
+
+        letter-spacing:
+          2.5px;
+      }
+
+      .welcome {
+        font-size:
+          19px;
+      }
+
+      .description {
+        font-size:
+          13px;
+
+        line-height:
+          1.65;
+      }
+
+      .button-row {
+        flex-direction:
+          column;
+      }
+
+      .upload-btn {
+        width:
+          100%;
+      }
+
+      input[type="text"],
+      textarea {
+        font-size:
+          16px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <main class="hero">
+
+    <section class="card">
+
+      <div class="small-title">
+        CELEBRATING OUR LOVE
+      </div>
+
+
+      <h1>
+        Iffa
+        <span class="x-symbol">×</span>
+        Hisham
+      </h1>
+
+
+      <div class="date">
+        02 • JANUARY • 2027
+      </div>
+
+
+      <div class="welcome">
+        Capture Our Day 🤍
+      </div>
+
+
+      <div class="description">
+        Share the beautiful moments you captured
+        and help us keep the memories of our special
+        day forever.
+      </div>
+
+
+      <div class="form">
+
+        <input
+          type="text"
+          id="guestName"
+          placeholder="Your name"
+          autocomplete="name"
+        >
+
+
+        <textarea
+          id="guestWish"
+          placeholder="Write a message for Iffa & Hisham"
+        ></textarea>
+
+
+        <input
+          type="file"
+          id="photoInput"
+          accept="image/*,video/*"
+          multiple
+        >
+
+
+        <div class="button-row">
+
+          <label
+            for="photoInput"
+            class="upload-btn choose-btn"
+          >
+            📷 Choose Photos / Videos
+          </label>
+
+
+          <button
+            type="button"
+            class="upload-btn send-btn"
+            id="submitButton"
+          >
+            🤍 Send Memories
+          </button>
+
+        </div>
+
+
+        <div id="uploadStatus"></div>
+
+      </div>
+
+
+      <div class="divider"></div>
+
+
+      <a
+        href="gallery.html"
+        class="gallery-link"
+      >
+        ✨ View Wedding Gallery
+      </a>
+
+
+      <div class="footer">
+        IFFA × HISHAM • 2027
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+  ></script>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
