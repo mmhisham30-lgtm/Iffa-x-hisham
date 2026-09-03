@@ -292,6 +292,161 @@
         font-size: 16px;
       }
     }
+    /* ========================================
+   WEDDING FLORAL CORNER DECORATION
+   IFFA × HISHAM
+======================================== */
+
+.floral-corner {
+  position: fixed;
+  width: 180px;
+  height: 180px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+.floral-corner.top-left {
+  top: -15px;
+  left: -15px;
+}
+
+.floral-corner.top-right {
+  top: -15px;
+  right: -15px;
+  transform: scaleX(-1);
+}
+
+.floral-corner.bottom-left {
+  bottom: -15px;
+  left: -15px;
+  transform: scaleY(-1);
+}
+
+.floral-corner.bottom-right {
+  bottom: -15px;
+  right: -15px;
+  transform: scale(-1);
+}
+
+
+/* Flowers */
+
+.floral-corner::before,
+.floral-corner::after {
+  content: "✿";
+  position: absolute;
+  font-size: 58px;
+  line-height: 1;
+  color: #b9dbea;
+  text-shadow:
+    0 2px 8px rgba(100, 150, 170, 0.15);
+}
+
+.floral-corner::before {
+  top: 8px;
+  left: 12px;
+}
+
+.floral-corner::after {
+  top: 58px;
+  left: 55px;
+  font-size: 42px;
+  color: #d7eaf2;
+}
+
+
+/* Leaves */
+
+.floral-corner {
+  background:
+    radial-gradient(
+      ellipse at 35% 25%,
+      rgba(170, 205, 190, 0.65) 0 7%,
+      transparent 8%
+    ),
+    radial-gradient(
+      ellipse at 52% 38%,
+      rgba(170, 205, 190, 0.55) 0 6%,
+      transparent 7%
+    ),
+    radial-gradient(
+      ellipse at 28% 55%,
+      rgba(170, 205, 190, 0.5) 0 5%,
+      transparent 6%
+    );
+}
+
+
+/* Small decorative flowers */
+
+.floral-corner span {
+  position: absolute;
+  display: block;
+  font-size: 25px;
+  color: #e5cfd7;
+  opacity: 0.85;
+}
+
+.floral-corner span:nth-child(1) {
+  top: 95px;
+  left: 15px;
+}
+
+.floral-corner span:nth-child(2) {
+  top: 125px;
+  left: 72px;
+  font-size: 19px;
+}
+
+.floral-corner span:nth-child(3) {
+  top: 35px;
+  left: 105px;
+  font-size: 20px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .floral-corner {
+    width: 115px;
+    height: 115px;
+    opacity: 0.75;
+  }
+
+  .floral-corner::before {
+    font-size: 42px;
+  }
+
+  .floral-corner::after {
+    font-size: 30px;
+    top: 43px;
+    left: 35px;
+  }
+
+  .floral-corner span {
+    font-size: 18px;
+  }
+
+  .floral-corner span:nth-child(1) {
+    top: 62px;
+  }
+
+  .floral-corner span:nth-child(2) {
+    top: 80px;
+    left: 45px;
+    font-size: 14px;
+  }
+
+  .floral-corner span:nth-child(3) {
+    top: 25px;
+    left: 68px;
+    font-size: 15px;
+  }
+
+}
   </style>
 </head>
 
