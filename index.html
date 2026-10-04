@@ -35,23 +35,7 @@
       margin: 0;
       min-height: 100vh;
 
-      background:
-        radial-gradient(
-          circle at 0% 0%,
-          rgba(207,234,255,0.75) 0%,
-          transparent 32%
-        ),
-        radial-gradient(
-          circle at 100% 100%,
-          rgba(218,240,255,0.75) 0%,
-          transparent 30%
-        ),
-        linear-gradient(
-          180deg,
-          #fffdfa 0%,
-          #f7fbfd 50%,
-          #f1f9fd 100%
-        );
+      background: var(--ivory);
 
       color: var(--text);
 
@@ -62,9 +46,9 @@
     }
 
 
-    /* =========================
-       PRE-WEDDING HERO
-       ========================= */
+    /* ========================================
+       FIRST PAGE - PRE-WEDDING HERO
+       ======================================== */
 
     .photo-hero {
       position: relative;
@@ -227,25 +211,62 @@
     }
 
 
-    /* =========================
-       UPLOAD SECTION
-       ========================= */
+    /* ========================================
+       SECOND PAGE - GUEST UPLOAD
+       ======================================== */
 
     .upload-section {
       min-height: 100vh;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
       padding:
-        60px 18px;
+        70px 18px;
 
       position: relative;
+
+      background:
+        linear-gradient(
+          rgba(255,255,255,0.30),
+          rgba(237,248,255,0.38)
+        ),
+        url("DSC_5843.jpeg");
+
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
     }
 
+
+    /* Soft overlay to keep card readable */
+
+    .upload-section::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,0.06) 0%,
+          rgba(255,255,255,0.16) 100%
+        );
+
+      pointer-events: none;
+    }
+
+
+    /* ========================================
+       WHITE UPLOAD CARD
+       ======================================== */
+
     .card {
+      position: relative;
+      z-index: 2;
+
       width: min(100%, 650px);
 
       padding:
@@ -255,17 +276,17 @@
       text-align: center;
 
       background:
-        rgba(255,255,255,0.88);
+        rgba(255,255,255,0.90);
 
       border:
         1px solid
-        rgba(142,187,216,0.30);
+        rgba(255,255,255,0.70);
 
       border-radius: 30px;
 
       box-shadow:
         0 24px 70px
-        rgba(39,73,95,0.11);
+        rgba(39,73,95,0.16);
 
       backdrop-filter: blur(12px);
 
@@ -321,6 +342,11 @@
       line-height: 1.75;
     }
 
+
+    /* ========================================
+       FORM
+       ======================================== */
+
     .form {
       width: 100%;
 
@@ -336,8 +362,7 @@
       padding:
         15px 16px;
 
-      margin-bottom:
-        12px;
+      margin-bottom: 12px;
 
       border:
         1px solid
@@ -383,6 +408,11 @@
     #photoInput {
       display: none;
     }
+
+
+    /* ========================================
+       BUTTONS
+       ======================================== */
 
     .button-row {
       display: flex;
@@ -494,6 +524,11 @@
       line-height: 1.5;
     }
 
+
+    /* ========================================
+       GALLERY LINK
+       ======================================== */
+
     .divider {
       width: 76px;
       height: 1px;
@@ -573,9 +608,9 @@
     }
 
 
-    /* =========================
+    /* ========================================
        MOBILE
-       ========================= */
+       ======================================== */
 
     @media (max-width: 600px) {
 
@@ -623,12 +658,29 @@
         letter-spacing: 2px;
       }
 
+
+      /* Background Save The Date */
+
       .upload-section {
-        min-height: auto;
+        min-height: 100vh;
 
         padding:
-          42px 11px
-          48px;
+          50px 11px;
+
+        background:
+          linear-gradient(
+            rgba(255,255,255,0.28),
+            rgba(237,248,255,0.36)
+          ),
+          url("DSC_5843.jpeg");
+
+        background-size: cover;
+
+        background-position:
+          center center;
+
+        background-repeat:
+          no-repeat;
       }
 
       .card {
@@ -637,6 +689,9 @@
           35px;
 
         border-radius: 24px;
+
+        background:
+          rgba(255,255,255,0.91);
       }
 
       .small-title {
@@ -675,9 +730,11 @@
 
 <body>
 
-  <!-- ======================
-       PRE-WEDDING PHOTO
-       ====================== -->
+
+  <!-- ======================================
+       FIRST PAGE
+       PRE-WEDDING HERO
+       ====================================== -->
 
   <section class="photo-hero">
 
@@ -692,17 +749,20 @@
         CELEBRATING OUR LOVE
       </div>
 
+
       <h1>
         Iffa
         <span class="hero-x">×</span>
         Hisham
       </h1>
 
+
       <div class="hero-date">
         26 • DECEMBER • 2026
       </div>
 
     </div>
+
 
     <div class="scroll-hint">
       SCROLL TO SHARE ↓
@@ -711,9 +771,11 @@
   </section>
 
 
-  <!-- ======================
-       GUEST UPLOAD
-       ====================== -->
+
+  <!-- ======================================
+       SECOND PAGE
+       GUEST PHOTO / VIDEO UPLOAD
+       ====================================== -->
 
   <main
     class="upload-section"
@@ -721,6 +783,7 @@
   >
 
     <section class="card">
+
 
       <div class="small-title">
         OUR WEDDING MEMORIES
@@ -739,7 +802,9 @@
       </div>
 
 
+
       <div class="form">
+
 
         <input
           type="text"
@@ -765,6 +830,7 @@
 
         <div class="button-row">
 
+
           <label
             for="photoInput"
             class="upload-btn choose-btn"
@@ -781,12 +847,15 @@
             🤍 Send Memories
           </button>
 
+
         </div>
 
 
         <div id="uploadStatus"></div>
 
+
       </div>
+
 
 
       <div class="divider"></div>
@@ -804,10 +873,16 @@
         IFFA × HISHAM • 2026
       </div>
 
+
     </section>
 
   </main>
 
+
+
+  <!-- ======================================
+       SUPABASE + EXISTING UPLOAD SCRIPT
+       ====================================== -->
 
   <script
     src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
@@ -815,6 +890,7 @@
 
 
   <script src="script.js"></script>
+
 
 </body>
 </html>
