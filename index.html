@@ -11,6 +11,7 @@
   <title>Iffa × Hisham | Wedding Memories</title>
 
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -46,14 +47,15 @@
     }
 
 
-    /* ========================================
+    /* =====================================
        FIRST PAGE - PRE-WEDDING HERO
-       ======================================== */
+       ===================================== */
 
     .photo-hero {
       position: relative;
 
       width: 100%;
+
       height: 92svh;
       min-height: 620px;
       max-height: 950px;
@@ -62,6 +64,7 @@
 
       background: #e8eef1;
     }
+
 
     .photo-hero img {
       width: 100%;
@@ -72,6 +75,7 @@
       object-fit: cover;
       object-position: center 48%;
     }
+
 
     .photo-hero::before {
       content: "";
@@ -91,26 +95,6 @@
         );
     }
 
-    .photo-hero::after {
-      content: "";
-
-      position: absolute;
-
-      left: 0;
-      right: 0;
-      bottom: 0;
-
-      height: 100px;
-
-      z-index: 2;
-
-      background:
-        linear-gradient(
-          to bottom,
-          transparent,
-          rgba(251,250,247,0.15)
-        );
-    }
 
     .hero-content {
       position: absolute;
@@ -133,6 +117,7 @@
         rgba(0,0,0,0.35);
     }
 
+
     .hero-small-title {
       margin-bottom: 14px;
 
@@ -145,6 +130,7 @@
 
       letter-spacing: 6px;
     }
+
 
     .hero-content h1 {
       margin: 0 0 16px;
@@ -161,6 +147,7 @@
       letter-spacing: -3px;
     }
 
+
     .hero-x {
       display: inline-block;
 
@@ -173,6 +160,7 @@
       font-weight: 300;
     }
 
+
     .hero-date {
       font-family:
         Arial,
@@ -184,6 +172,7 @@
       letter-spacing: 5px;
     }
 
+
     .scroll-hint {
       position: absolute;
 
@@ -194,7 +183,8 @@
 
       z-index: 4;
 
-      color: rgba(255,255,255,0.90);
+      color:
+        rgba(255,255,255,0.90);
 
       font-family:
         Arial,
@@ -211,36 +201,42 @@
     }
 
 
-    /* ========================================
-       SECOND PAGE - GUEST UPLOAD
-       ======================================== */
+
+    /* =====================================
+       SECOND PAGE - BACKGROUND PHOTO
+       ===================================== */
 
     .upload-section {
       min-height: 100vh;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
+
+      position: relative;
 
       padding:
         70px 18px;
 
-      position: relative;
-
       background:
         linear-gradient(
-          rgba(255,255,255,0.30),
-          rgba(237,248,255,0.38)
+          rgba(255,248,240,0.08),
+          rgba(237,248,255,0.12)
         ),
         url("DSC_5843.jpeg");
 
       background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
+
+      background-position:
+        center center;
+
+      background-repeat:
+        no-repeat;
     }
 
 
-    /* Soft overlay to keep card readable */
+    /* Very light overlay */
 
     .upload-section::before {
       content: "";
@@ -249,25 +245,24 @@
       inset: 0;
 
       background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,0.06) 0%,
-          rgba(255,255,255,0.16) 100%
-        );
+        rgba(255,255,255,0.06);
 
       pointer-events: none;
     }
 
 
-    /* ========================================
-       WHITE UPLOAD CARD
-       ======================================== */
+
+    /* =====================================
+       GLASS CARD
+       ===================================== */
 
     .card {
       position: relative;
+
       z-index: 2;
 
-      width: min(100%, 650px);
+      width:
+        min(100%, 650px);
 
       padding:
         48px 38px
@@ -275,40 +270,55 @@
 
       text-align: center;
 
+
+      /* GLASS EFFECT */
+
       background:
-        rgba(255,255,255,0.90);
+        rgba(255,255,255,0.68);
+
 
       border:
         1px solid
-        rgba(255,255,255,0.70);
+        rgba(255,255,255,0.78);
 
-      border-radius: 30px;
+
+      border-radius:
+        30px;
+
 
       box-shadow:
-        0 24px 70px
-        rgba(39,73,95,0.16);
+        0 25px 70px
+        rgba(30,55,70,0.17);
 
-      backdrop-filter: blur(12px);
+
+      backdrop-filter:
+        blur(9px)
+        saturate(115%);
+
 
       -webkit-backdrop-filter:
-        blur(12px);
+        blur(9px)
+        saturate(115%);
     }
+
 
     .small-title {
       margin-bottom: 17px;
 
       color:
-        var(--dusty-blue);
+        #659ab8;
 
       font-family:
         Arial,
         sans-serif;
 
       font-size: 11px;
+
       font-weight: 700;
 
       letter-spacing: 6px;
     }
+
 
     .card-title {
       margin:
@@ -318,10 +328,12 @@
       color:
         var(--navy);
 
-      font-size: 30px;
+      font-size:
+        30px;
 
       font-weight: normal;
     }
+
 
     .description {
       max-width: 510px;
@@ -331,7 +343,7 @@
         28px;
 
       color:
-        var(--muted);
+        #607985;
 
       font-family:
         Arial,
@@ -343,35 +355,41 @@
     }
 
 
-    /* ========================================
+
+    /* =====================================
        FORM
-       ======================================== */
+       ===================================== */
 
     .form {
       width: 100%;
 
       max-width: 455px;
 
-      margin: 0 auto;
+      margin:
+        0 auto;
     }
+
 
     input[type="text"],
     textarea {
+
       width: 100%;
 
       padding:
         15px 16px;
 
-      margin-bottom: 12px;
+      margin-bottom:
+        12px;
 
       border:
         1px solid
-        rgba(142,187,216,0.35);
+        rgba(255,255,255,0.75);
 
-      border-radius: 14px;
+      border-radius:
+        14px;
 
       background:
-        rgba(255,255,255,0.96);
+        rgba(255,255,255,0.76);
 
       color:
         var(--text);
@@ -380,90 +398,124 @@
         Arial,
         sans-serif;
 
-      font-size: 15px;
+      font-size:
+        15px;
 
-      outline: none;
+      outline:
+        none;
+
+      box-shadow:
+        0 4px 16px
+        rgba(39,73,95,0.05);
+
+      backdrop-filter:
+        blur(5px);
+
+      -webkit-backdrop-filter:
+        blur(5px);
 
       transition:
         border-color 0.2s ease,
         box-shadow 0.2s ease;
     }
 
-    textarea {
-      min-height: 110px;
 
-      resize: vertical;
+    textarea {
+      min-height:
+        110px;
+
+      resize:
+        vertical;
     }
+
 
     input[type="text"]:focus,
     textarea:focus {
+
       border-color:
         var(--dusty-blue);
 
       box-shadow:
         0 0 0 4px
-        rgba(142,187,216,0.13);
+        rgba(142,187,216,0.18);
     }
+
 
     #photoInput {
       display: none;
     }
 
 
-    /* ========================================
+
+    /* =====================================
        BUTTONS
-       ======================================== */
+       ===================================== */
 
     .button-row {
       display: flex;
 
       gap: 10px;
 
-      margin-top: 5px;
+      margin-top:
+        5px;
     }
+
 
     .upload-btn {
       flex: 1;
 
-      min-height: 50px;
+      min-height:
+        50px;
 
       display: flex;
 
       align-items: center;
+
       justify-content: center;
 
       padding:
         14px 18px;
 
-      border-radius: 999px;
+      border-radius:
+        999px;
 
       font-family:
         Arial,
         sans-serif;
 
-      font-size: 14px;
+      font-size:
+        14px;
 
-      font-weight: 700;
+      font-weight:
+        700;
 
-      cursor: pointer;
+      cursor:
+        pointer;
 
       transition:
         transform 0.18s ease,
-        box-shadow 0.18s ease,
-        background 0.18s ease;
+        box-shadow 0.18s ease;
     }
+
 
     .choose-btn {
       background:
-        rgba(237,248,255,0.90);
+        rgba(237,248,255,0.78);
 
       color:
         var(--navy);
 
       border:
         1px solid
-        rgba(142,187,216,0.42);
+        rgba(255,255,255,0.75);
+
+      backdrop-filter:
+        blur(5px);
+
+      -webkit-backdrop-filter:
+        blur(5px);
     }
+
 
     .send-btn {
       border: none;
@@ -476,41 +528,49 @@
         );
 
       color:
-        var(--white);
+        white;
 
       box-shadow:
         0 10px 25px
-        rgba(39,73,95,0.18);
+        rgba(39,73,95,0.20);
     }
+
 
     .upload-btn:hover {
       transform:
         translateY(-2px);
     }
 
+
     .send-btn:hover {
       box-shadow:
         0 14px 30px
-        rgba(39,73,95,0.24);
+        rgba(39,73,95,0.26);
     }
+
 
     .upload-btn:active {
       transform:
         scale(0.98);
     }
 
+
     .send-btn:disabled {
       opacity: 0.55;
 
-      cursor: not-allowed;
+      cursor:
+        not-allowed;
 
       transform: none;
     }
 
-    #uploadStatus {
-      min-height: 25px;
 
-      margin-top: 18px;
+    #uploadStatus {
+      min-height:
+        25px;
+
+      margin-top:
+        18px;
 
       color:
         var(--navy);
@@ -519,19 +579,25 @@
         Arial,
         sans-serif;
 
-      font-size: 14px;
+      font-size:
+        14px;
 
-      line-height: 1.5;
+      line-height:
+        1.5;
     }
 
 
-    /* ========================================
-       GALLERY LINK
-       ======================================== */
+
+    /* =====================================
+       GALLERY
+       ===================================== */
 
     .divider {
-      width: 76px;
-      height: 1px;
+      width:
+        76px;
+
+      height:
+        1px;
 
       margin:
         30px auto
@@ -546,25 +612,32 @@
         );
     }
 
+
     .gallery-link {
-      display: inline-flex;
+      display:
+        inline-flex;
 
-      align-items: center;
-      justify-content: center;
+      align-items:
+        center;
 
-      min-height: 44px;
+      justify-content:
+        center;
+
+      min-height:
+        44px;
 
       padding:
         0 19px;
 
       border:
         1px solid
-        rgba(142,187,216,0.40);
+        rgba(255,255,255,0.75);
 
-      border-radius: 999px;
+      border-radius:
+        999px;
 
       background:
-        rgba(237,248,255,0.82);
+        rgba(237,248,255,0.76);
 
       color:
         var(--navy);
@@ -573,15 +646,26 @@
         Arial,
         sans-serif;
 
-      font-size: 13px;
-      font-weight: 700;
+      font-size:
+        13px;
 
-      text-decoration: none;
+      font-weight:
+        700;
+
+      text-decoration:
+        none;
+
+      backdrop-filter:
+        blur(5px);
+
+      -webkit-backdrop-filter:
+        blur(5px);
 
       transition:
         transform 0.18s ease,
         box-shadow 0.18s ease;
     }
+
 
     .gallery-link:hover {
       transform:
@@ -589,92 +673,121 @@
 
       box-shadow:
         0 10px 25px
-        rgba(39,73,95,0.08);
+        rgba(39,73,95,0.10);
     }
 
-    .footer {
-      margin-top: 28px;
 
-      color: #8aa4b3;
+    .footer {
+      margin-top:
+        28px;
+
+      color:
+        #6f8997;
 
       font-family:
         Arial,
         sans-serif;
 
-      font-size: 10px;
-      font-weight: 600;
+      font-size:
+        10px;
 
-      letter-spacing: 3px;
+      font-weight:
+        700;
+
+      letter-spacing:
+        3px;
     }
 
 
-    /* ========================================
+
+    /* =====================================
        MOBILE
-       ======================================== */
+       ===================================== */
 
     @media (max-width: 600px) {
 
       .photo-hero {
-        height: 85svh;
-        min-height: 590px;
-        max-height: 820px;
+        height:
+          85svh;
+
+        min-height:
+          590px;
+
+        max-height:
+          820px;
       }
+
 
       .photo-hero img {
         object-position:
           center center;
       }
 
+
       .hero-content {
-        bottom: 72px;
+        bottom:
+          72px;
       }
+
 
       .hero-small-title {
-        font-size: 8px;
+        font-size:
+          8px;
 
-        letter-spacing: 4px;
+        letter-spacing:
+          4px;
       }
+
 
       .hero-content h1 {
         font-size:
           clamp(46px, 14vw, 64px);
 
-        letter-spacing: -2px;
+        letter-spacing:
+          -2px;
       }
+
 
       .hero-x {
-        margin: 0 3px;
+        margin:
+          0 3px;
       }
+
 
       .hero-date {
-        font-size: 9px;
+        font-size:
+          9px;
 
-        letter-spacing: 3px;
+        letter-spacing:
+          3px;
       }
+
 
       .scroll-hint {
-        font-size: 7px;
+        font-size:
+          7px;
 
-        letter-spacing: 2px;
+        letter-spacing:
+          2px;
       }
 
 
-      /* Background Save The Date */
-
       .upload-section {
-        min-height: 100vh;
+        min-height:
+          100vh;
 
         padding:
           50px 11px;
 
         background:
           linear-gradient(
-            rgba(255,255,255,0.28),
-            rgba(237,248,255,0.36)
+            rgba(255,248,240,0.06),
+            rgba(237,248,255,0.10)
           ),
           url("DSC_5843.jpeg");
 
-        background-size: cover;
+        background-size:
+          cover;
 
         background-position:
           center center;
@@ -683,58 +796,96 @@
           no-repeat;
       }
 
+
       .card {
         padding:
           39px 22px
           35px;
 
-        border-radius: 24px;
+        border-radius:
+          24px;
+
+
+        /* MOBILE GLASS */
 
         background:
-          rgba(255,255,255,0.91);
+          rgba(255,255,255,0.64);
+
+
+        backdrop-filter:
+          blur(8px)
+          saturate(115%);
+
+
+        -webkit-backdrop-filter:
+          blur(8px)
+          saturate(115%);
+
+
+        box-shadow:
+          0 20px 55px
+          rgba(30,55,70,0.16);
       }
+
 
       .small-title {
-        font-size: 9px;
+        font-size:
+          9px;
 
-        letter-spacing: 4px;
+        letter-spacing:
+          4px;
       }
+
 
       .card-title {
-        font-size: 26px;
+        font-size:
+          26px;
       }
+
 
       .description {
-        font-size: 13px;
+        font-size:
+          13px;
 
-        line-height: 1.65;
+        line-height:
+          1.65;
       }
+
 
       .button-row {
-        flex-direction: column;
+        flex-direction:
+          column;
       }
 
+
       .upload-btn {
-        width: 100%;
+        width:
+          100%;
       }
+
 
       input[type="text"],
       textarea {
-        font-size: 16px;
+        font-size:
+          16px;
+
+        background:
+          rgba(255,255,255,0.76);
       }
+
     }
 
   </style>
 </head>
 
 
+
 <body>
 
 
-  <!-- ======================================
+  <!-- =====================================
        FIRST PAGE
-       PRE-WEDDING HERO
-       ====================================== -->
+       ===================================== -->
 
   <section class="photo-hero">
 
@@ -742,6 +893,7 @@
       src="DSC_5681.jpeg"
       alt="Iffa and Hisham"
     >
+
 
     <div class="hero-content">
 
@@ -772,15 +924,15 @@
 
 
 
-  <!-- ======================================
+  <!-- =====================================
        SECOND PAGE
-       GUEST PHOTO / VIDEO UPLOAD
-       ====================================== -->
+       ===================================== -->
 
   <main
     class="upload-section"
     id="share"
   >
+
 
     <section class="card">
 
@@ -796,9 +948,11 @@
 
 
       <div class="description">
+
         Share the beautiful moments you captured
         and help us keep the memories of our special
         day forever.
+
       </div>
 
 
@@ -826,6 +980,7 @@
           accept="image/*,video/*"
           multiple
         >
+
 
 
         <div class="button-row">
@@ -880,14 +1035,14 @@
 
 
 
-  <!-- ======================================
-       SUPABASE + EXISTING UPLOAD SCRIPT
-       ====================================== -->
+  <!-- SUPABASE -->
 
   <script
     src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
   ></script>
 
+
+  <!-- EXISTING UPLOAD FUNCTION -->
 
   <script src="script.js"></script>
 
