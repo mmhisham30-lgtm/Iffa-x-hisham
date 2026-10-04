@@ -27,6 +27,10 @@
       --white: #ffffff;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -57,15 +61,188 @@
         serif;
     }
 
-    .hero {
+
+    /* =========================
+       PRE-WEDDING HERO
+       ========================= */
+
+    .photo-hero {
+      position: relative;
+
+      width: 100%;
+      height: 92svh;
+      min-height: 620px;
+      max-height: 950px;
+
+      overflow: hidden;
+
+      background: #e8eef1;
+    }
+
+    .photo-hero img {
+      width: 100%;
+      height: 100%;
+
+      display: block;
+
+      object-fit: cover;
+      object-position: center 48%;
+    }
+
+    .photo-hero::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      z-index: 1;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(15,32,42,0.02) 0%,
+          rgba(15,32,42,0.01) 42%,
+          rgba(15,32,42,0.13) 65%,
+          rgba(15,32,42,0.58) 100%
+        );
+    }
+
+    .photo-hero::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      height: 100px;
+
+      z-index: 2;
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent,
+          rgba(251,250,247,0.15)
+        );
+    }
+
+    .hero-content {
+      position: absolute;
+
+      left: 50%;
+      bottom: 76px;
+
+      transform: translateX(-50%);
+
+      z-index: 3;
+
+      width: calc(100% - 36px);
+
+      text-align: center;
+
+      color: white;
+
+      text-shadow:
+        0 2px 20px
+        rgba(0,0,0,0.35);
+    }
+
+    .hero-small-title {
+      margin-bottom: 14px;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 10px;
+      font-weight: 700;
+
+      letter-spacing: 6px;
+    }
+
+    .hero-content h1 {
+      margin: 0 0 16px;
+
+      color: white;
+
+      font-size:
+        clamp(56px, 9vw, 94px);
+
+      font-weight: normal;
+
+      line-height: 0.95;
+
+      letter-spacing: -3px;
+    }
+
+    .hero-x {
+      display: inline-block;
+
+      margin: 0 7px;
+
+      color: #d9effb;
+
+      font-style: italic;
+
+      font-weight: 300;
+    }
+
+    .hero-date {
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      letter-spacing: 5px;
+    }
+
+    .scroll-hint {
+      position: absolute;
+
+      left: 50%;
+      bottom: 27px;
+
+      transform: translateX(-50%);
+
+      z-index: 4;
+
+      color: rgba(255,255,255,0.90);
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size: 8px;
+      font-weight: 700;
+
+      letter-spacing: 3px;
+
+      text-shadow:
+        0 2px 10px
+        rgba(0,0,0,0.35);
+    }
+
+
+    /* =========================
+       UPLOAD SECTION
+       ========================= */
+
+    .upload-section {
       min-height: 100vh;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
       padding:
-        36px 18px;
+        60px 18px;
+
+      position: relative;
     }
 
     .card {
@@ -78,21 +255,19 @@
       text-align: center;
 
       background:
-        rgba(255,255,255,0.86);
+        rgba(255,255,255,0.88);
 
       border:
         1px solid
         rgba(142,187,216,0.30);
 
-      border-radius:
-        30px;
+      border-radius: 30px;
 
       box-shadow:
         0 24px 70px
         rgba(39,73,95,0.11);
 
-      backdrop-filter:
-        blur(12px);
+      backdrop-filter: blur(12px);
 
       -webkit-backdrop-filter:
         blur(12px);
@@ -114,71 +289,21 @@
       letter-spacing: 6px;
     }
 
-    h1 {
+    .card-title {
       margin:
         0 0
-        14px;
+        12px;
 
       color:
         var(--navy);
 
-      font-size:
-        clamp(52px, 10vw, 82px);
+      font-size: 30px;
 
       font-weight: normal;
-
-      line-height: 0.95;
-
-      letter-spacing: -3px;
-    }
-
-    .x-symbol {
-      display: inline-block;
-
-      margin:
-        0 7px;
-
-      color:
-        var(--dusty-blue);
-
-      font-style:
-        italic;
-
-      font-weight: 300;
-    }
-
-    .date {
-      margin-bottom:
-        28px;
-
-      color:
-        var(--muted);
-
-      font-family:
-        Arial,
-        sans-serif;
-
-      font-size:
-        13px;
-
-      letter-spacing:
-        4px;
-    }
-
-    .welcome {
-      margin-bottom:
-        10px;
-
-      color:
-        var(--navy);
-
-      font-size:
-        22px;
     }
 
     .description {
-      max-width:
-        510px;
+      max-width: 510px;
 
       margin:
         0 auto
@@ -191,21 +316,17 @@
         Arial,
         sans-serif;
 
-      font-size:
-        15px;
+      font-size: 15px;
 
-      line-height:
-        1.75;
+      line-height: 1.75;
     }
 
     .form {
       width: 100%;
 
-      max-width:
-        455px;
+      max-width: 455px;
 
-      margin:
-        0 auto;
+      margin: 0 auto;
     }
 
     input[type="text"],
@@ -222,8 +343,7 @@
         1px solid
         rgba(142,187,216,0.35);
 
-      border-radius:
-        14px;
+      border-radius: 14px;
 
       background:
         rgba(255,255,255,0.96);
@@ -235,11 +355,9 @@
         Arial,
         sans-serif;
 
-      font-size:
-        15px;
+      font-size: 15px;
 
-      outline:
-        none;
+      outline: none;
 
       transition:
         border-color 0.2s ease,
@@ -247,11 +365,9 @@
     }
 
     textarea {
-      min-height:
-        110px;
+      min-height: 110px;
 
-      resize:
-        vertical;
+      resize: vertical;
     }
 
     input[type="text"]:focus,
@@ -273,42 +389,33 @@
 
       gap: 10px;
 
-      margin-top:
-        5px;
+      margin-top: 5px;
     }
 
     .upload-btn {
       flex: 1;
 
-      min-height:
-        50px;
+      min-height: 50px;
 
       display: flex;
 
-      align-items:
-        center;
-
-      justify-content:
-        center;
+      align-items: center;
+      justify-content: center;
 
       padding:
         14px 18px;
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       font-family:
         Arial,
         sans-serif;
 
-      font-size:
-        14px;
+      font-size: 14px;
 
-      font-weight:
-        700;
+      font-weight: 700;
 
-      cursor:
-        pointer;
+      cursor: pointer;
 
       transition:
         transform 0.18s ease,
@@ -329,8 +436,7 @@
     }
 
     .send-btn {
-      border:
-        none;
+      border: none;
 
       background:
         linear-gradient(
@@ -364,22 +470,17 @@
     }
 
     .send-btn:disabled {
-      opacity:
-        0.55;
+      opacity: 0.55;
 
-      cursor:
-        not-allowed;
+      cursor: not-allowed;
 
-      transform:
-        none;
+      transform: none;
     }
 
     #uploadStatus {
-      min-height:
-        25px;
+      min-height: 25px;
 
-      margin-top:
-        18px;
+      margin-top: 18px;
 
       color:
         var(--navy);
@@ -388,19 +489,14 @@
         Arial,
         sans-serif;
 
-      font-size:
-        14px;
+      font-size: 14px;
 
-      line-height:
-        1.5;
+      line-height: 1.5;
     }
 
     .divider {
-      width:
-        76px;
-
-      height:
-        1px;
+      width: 76px;
+      height: 1px;
 
       margin:
         30px auto
@@ -416,17 +512,12 @@
     }
 
     .gallery-link {
-      display:
-        inline-flex;
+      display: inline-flex;
 
-      align-items:
-        center;
+      align-items: center;
+      justify-content: center;
 
-      justify-content:
-        center;
-
-      min-height:
-        44px;
+      min-height: 44px;
 
       padding:
         0 19px;
@@ -435,8 +526,7 @@
         1px solid
         rgba(142,187,216,0.40);
 
-      border-radius:
-        999px;
+      border-radius: 999px;
 
       background:
         rgba(237,248,255,0.82);
@@ -448,14 +538,10 @@
         Arial,
         sans-serif;
 
-      font-size:
-        13px;
+      font-size: 13px;
+      font-weight: 700;
 
-      font-weight:
-        700;
-
-      text-decoration:
-        none;
+      text-decoration: none;
 
       transition:
         transform 0.18s ease,
@@ -472,31 +558,77 @@
     }
 
     .footer {
-      margin-top:
-        28px;
+      margin-top: 28px;
 
-      color:
-        #8aa4b3;
+      color: #8aa4b3;
 
       font-family:
         Arial,
         sans-serif;
 
-      font-size:
-        10px;
+      font-size: 10px;
+      font-weight: 600;
 
-      font-weight:
-        600;
-
-      letter-spacing:
-        3px;
+      letter-spacing: 3px;
     }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
 
     @media (max-width: 600px) {
 
-      .hero {
+      .photo-hero {
+        height: 85svh;
+        min-height: 590px;
+        max-height: 820px;
+      }
+
+      .photo-hero img {
+        object-position:
+          center center;
+      }
+
+      .hero-content {
+        bottom: 72px;
+      }
+
+      .hero-small-title {
+        font-size: 8px;
+
+        letter-spacing: 4px;
+      }
+
+      .hero-content h1 {
+        font-size:
+          clamp(46px, 14vw, 64px);
+
+        letter-spacing: -2px;
+      }
+
+      .hero-x {
+        margin: 0 3px;
+      }
+
+      .hero-date {
+        font-size: 9px;
+
+        letter-spacing: 3px;
+      }
+
+      .scroll-hint {
+        font-size: 7px;
+
+        letter-spacing: 2px;
+      }
+
+      .upload-section {
+        min-height: auto;
+
         padding:
-          18px 11px;
+          42px 11px
+          48px;
       }
 
       .card {
@@ -504,66 +636,36 @@
           39px 22px
           35px;
 
-        border-radius:
-          24px;
+        border-radius: 24px;
       }
 
       .small-title {
-        font-size:
-          9px;
+        font-size: 9px;
 
-        letter-spacing:
-          4px;
+        letter-spacing: 4px;
       }
 
-      h1 {
-        font-size:
-          clamp(45px, 14vw, 60px);
-
-        letter-spacing:
-          -2px;
-      }
-
-      .x-symbol {
-        margin:
-          0 3px;
-      }
-
-      .date {
-        font-size:
-          10px;
-
-        letter-spacing:
-          2.5px;
-      }
-
-      .welcome {
-        font-size:
-          19px;
+      .card-title {
+        font-size: 26px;
       }
 
       .description {
-        font-size:
-          13px;
+        font-size: 13px;
 
-        line-height:
-          1.65;
+        line-height: 1.65;
       }
 
       .button-row {
-        flex-direction:
-          column;
+        flex-direction: column;
       }
 
       .upload-btn {
-        width:
-          100%;
+        width: 100%;
       }
 
       input[type="text"],
       textarea {
-        font-size:
-          16px;
+        font-size: 16px;
       }
     }
 
@@ -573,30 +675,61 @@
 
 <body>
 
-  <main class="hero">
+  <!-- ======================
+       PRE-WEDDING PHOTO
+       ====================== -->
+
+  <section class="photo-hero">
+
+    <img
+      src="DSC_5681.jpeg"
+      alt="Iffa and Hisham"
+    >
+
+    <div class="hero-content">
+
+      <div class="hero-small-title">
+        CELEBRATING OUR LOVE
+      </div>
+
+      <h1>
+        Iffa
+        <span class="hero-x">×</span>
+        Hisham
+      </h1>
+
+      <div class="hero-date">
+        26 • DECEMBER • 2026
+      </div>
+
+    </div>
+
+    <div class="scroll-hint">
+      SCROLL TO SHARE ↓
+    </div>
+
+  </section>
+
+
+  <!-- ======================
+       GUEST UPLOAD
+       ====================== -->
+
+  <main
+    class="upload-section"
+    id="share"
+  >
 
     <section class="card">
 
       <div class="small-title">
-        CELEBRATING OUR LOVE
+        OUR WEDDING MEMORIES
       </div>
 
 
-      <h1>
-        Iffa
-        <span class="x-symbol">×</span>
-        Hisham
-      </h1>
-
-
-      <div class="date">
-        26 • DECEMBER • 2026
-      </div>
-
-
-      <div class="welcome">
+      <h2 class="card-title">
         Capture Our Day 🤍
-      </div>
+      </h2>
 
 
       <div class="description">
