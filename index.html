@@ -65,7 +65,6 @@
       background: #e8eef1;
     }
 
-
     .photo-hero img {
       width: 100%;
       height: 100%;
@@ -75,7 +74,6 @@
       object-fit: cover;
       object-position: center 48%;
     }
-
 
     .photo-hero::before {
       content: "";
@@ -94,7 +92,6 @@
           rgba(15,32,42,0.58) 100%
         );
     }
-
 
     .hero-content {
       position: absolute;
@@ -117,7 +114,6 @@
         rgba(0,0,0,0.35);
     }
 
-
     .hero-small-title {
       margin-bottom: 14px;
 
@@ -130,7 +126,6 @@
 
       letter-spacing: 6px;
     }
-
 
     .hero-content h1 {
       margin: 0 0 16px;
@@ -147,7 +142,6 @@
       letter-spacing: -3px;
     }
 
-
     .hero-x {
       display: inline-block;
 
@@ -160,7 +154,6 @@
       font-weight: 300;
     }
 
-
     .hero-date {
       font-family:
         Arial,
@@ -171,7 +164,6 @@
 
       letter-spacing: 5px;
     }
-
 
     .scroll-hint {
       position: absolute;
@@ -201,16 +193,14 @@
     }
 
 
-
     /* =====================================
-       SECOND PAGE - BACKGROUND PHOTO
+       SECOND PAGE - BACKGROUND
        ===================================== */
 
     .upload-section {
       min-height: 100vh;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -221,8 +211,8 @@
 
       background:
         linear-gradient(
-          rgba(255,248,240,0.08),
-          rgba(237,248,255,0.12)
+          rgba(255,248,240,0.04),
+          rgba(237,248,255,0.07)
         ),
         url("DSC_5843.jpeg");
 
@@ -235,9 +225,6 @@
         no-repeat;
     }
 
-
-    /* Very light overlay */
-
     .upload-section::before {
       content: "";
 
@@ -245,15 +232,14 @@
       inset: 0;
 
       background:
-        rgba(255,255,255,0.06);
+        rgba(255,255,255,0.025);
 
       pointer-events: none;
     }
 
 
-
     /* =====================================
-       GLASS CARD
+       GLASS V2 CARD
        ===================================== */
 
     .card {
@@ -262,19 +248,19 @@
       z-index: 2;
 
       width:
-        min(100%, 650px);
+        min(100%, 590px);
 
       padding:
-        48px 38px
-        42px;
+        43px 34px
+        37px;
 
       text-align: center;
 
 
-      /* GLASS EFFECT */
+      /* LIGHTER GLASS */
 
       background:
-        rgba(255,255,255,0.68);
+        rgba(255,255,255,0.58);
 
 
       border:
@@ -283,27 +269,29 @@
 
 
       border-radius:
-        30px;
+        28px;
 
 
       box-shadow:
-        0 25px 70px
+        0 24px 65px
         rgba(30,55,70,0.17);
 
 
+      /* LESS BLUR */
+
       backdrop-filter:
-        blur(9px)
-        saturate(115%);
+        blur(3px)
+        saturate(110%);
 
 
       -webkit-backdrop-filter:
-        blur(9px)
-        saturate(115%);
+        blur(3px)
+        saturate(110%);
     }
 
 
     .small-title {
-      margin-bottom: 17px;
+      margin-bottom: 16px;
 
       color:
         #659ab8;
@@ -312,35 +300,35 @@
         Arial,
         sans-serif;
 
-      font-size: 11px;
+      font-size: 10px;
 
       font-weight: 700;
 
-      letter-spacing: 6px;
+      letter-spacing: 5px;
     }
 
 
     .card-title {
       margin:
         0 0
-        12px;
+        11px;
 
       color:
         var(--navy);
 
       font-size:
-        30px;
+        29px;
 
       font-weight: normal;
     }
 
 
     .description {
-      max-width: 510px;
+      max-width: 490px;
 
       margin:
         0 auto
-        28px;
+        25px;
 
       color:
         #607985;
@@ -349,11 +337,10 @@
         Arial,
         sans-serif;
 
-      font-size: 15px;
+      font-size: 14px;
 
-      line-height: 1.75;
+      line-height: 1.7;
     }
-
 
 
     /* =====================================
@@ -363,7 +350,7 @@
     .form {
       width: 100%;
 
-      max-width: 455px;
+      max-width: 430px;
 
       margin:
         0 auto;
@@ -372,7 +359,6 @@
 
     input[type="text"],
     textarea {
-
       width: 100%;
 
       padding:
@@ -383,13 +369,13 @@
 
       border:
         1px solid
-        rgba(255,255,255,0.75);
+        rgba(255,255,255,0.80);
 
       border-radius:
         14px;
 
       background:
-        rgba(255,255,255,0.76);
+        rgba(255,255,255,0.79);
 
       color:
         var(--text);
@@ -409,10 +395,10 @@
         rgba(39,73,95,0.05);
 
       backdrop-filter:
-        blur(5px);
+        blur(2px);
 
       -webkit-backdrop-filter:
-        blur(5px);
+        blur(2px);
 
       transition:
         border-color 0.2s ease,
@@ -422,7 +408,7 @@
 
     textarea {
       min-height:
-        110px;
+        105px;
 
       resize:
         vertical;
@@ -431,7 +417,6 @@
 
     input[type="text"]:focus,
     textarea:focus {
-
       border-color:
         var(--dusty-blue);
 
@@ -444,7 +429,6 @@
     #photoInput {
       display: none;
     }
-
 
 
     /* =====================================
@@ -470,11 +454,10 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       padding:
-        14px 18px;
+        14px 16px;
 
       border-radius:
         999px;
@@ -484,7 +467,7 @@
         sans-serif;
 
       font-size:
-        14px;
+        13px;
 
       font-weight:
         700;
@@ -500,20 +483,20 @@
 
     .choose-btn {
       background:
-        rgba(237,248,255,0.78);
+        rgba(237,248,255,0.80);
 
       color:
         var(--navy);
 
       border:
         1px solid
-        rgba(255,255,255,0.75);
+        rgba(255,255,255,0.82);
 
       backdrop-filter:
-        blur(5px);
+        blur(2px);
 
       -webkit-backdrop-filter:
-        blur(5px);
+        blur(2px);
     }
 
 
@@ -527,8 +510,7 @@
           #27495f
         );
 
-      color:
-        white;
+      color: white;
 
       box-shadow:
         0 10px 25px
@@ -570,7 +552,7 @@
         25px;
 
       margin-top:
-        18px;
+        16px;
 
       color:
         var(--navy);
@@ -587,21 +569,20 @@
     }
 
 
-
     /* =====================================
        GALLERY
        ===================================== */
 
     .divider {
       width:
-        76px;
+        70px;
 
       height:
         1px;
 
       margin:
-        30px auto
-        20px;
+        25px auto
+        18px;
 
       background:
         linear-gradient(
@@ -624,20 +605,20 @@
         center;
 
       min-height:
-        44px;
+        43px;
 
       padding:
-        0 19px;
+        0 18px;
 
       border:
         1px solid
-        rgba(255,255,255,0.75);
+        rgba(255,255,255,0.82);
 
       border-radius:
         999px;
 
       background:
-        rgba(237,248,255,0.76);
+        rgba(237,248,255,0.80);
 
       color:
         var(--navy);
@@ -656,10 +637,10 @@
         none;
 
       backdrop-filter:
-        blur(5px);
+        blur(2px);
 
       -webkit-backdrop-filter:
-        blur(5px);
+        blur(2px);
 
       transition:
         transform 0.18s ease,
@@ -679,17 +660,17 @@
 
     .footer {
       margin-top:
-        28px;
+        25px;
 
       color:
-        #6f8997;
+        #617e8d;
 
       font-family:
         Arial,
         sans-serif;
 
       font-size:
-        10px;
+        9px;
 
       font-weight:
         700;
@@ -699,7 +680,6 @@
     }
 
 
-
     /* =====================================
        MOBILE
        ===================================== */
@@ -707,14 +687,11 @@
     @media (max-width: 600px) {
 
       .photo-hero {
-        height:
-          85svh;
+        height: 85svh;
 
-        min-height:
-          590px;
+        min-height: 590px;
 
-        max-height:
-          820px;
+        max-height: 820px;
       }
 
 
@@ -777,12 +754,12 @@
           100vh;
 
         padding:
-          50px 11px;
+          45px 16px;
 
         background:
           linear-gradient(
-            rgba(255,248,240,0.06),
-            rgba(237,248,255,0.10)
+            rgba(255,248,240,0.04),
+            rgba(237,248,255,0.07)
           ),
           url("DSC_5843.jpeg");
 
@@ -798,29 +775,26 @@
 
 
       .card {
+        width:
+          min(100%, 520px);
+
         padding:
-          39px 22px
-          35px;
+          36px 20px
+          32px;
 
         border-radius:
           24px;
 
-
-        /* MOBILE GLASS */
-
         background:
-          rgba(255,255,255,0.64);
-
+          rgba(255,255,255,0.57);
 
         backdrop-filter:
-          blur(8px)
-          saturate(115%);
-
+          blur(3px)
+          saturate(110%);
 
         -webkit-backdrop-filter:
-          blur(8px)
-          saturate(115%);
-
+          blur(3px)
+          saturate(110%);
 
         box-shadow:
           0 20px 55px
@@ -830,7 +804,7 @@
 
       .small-title {
         font-size:
-          9px;
+          8px;
 
         letter-spacing:
           4px;
@@ -870,7 +844,7 @@
           16px;
 
         background:
-          rgba(255,255,255,0.76);
+          rgba(255,255,255,0.80);
       }
 
     }
@@ -879,13 +853,10 @@
 </head>
 
 
-
 <body>
 
 
-  <!-- =====================================
-       FIRST PAGE
-       ===================================== -->
+  <!-- FIRST PAGE -->
 
   <section class="photo-hero">
 
@@ -924,9 +895,7 @@
 
 
 
-  <!-- =====================================
-       SECOND PAGE
-       ===================================== -->
+  <!-- SECOND PAGE -->
 
   <main
     class="upload-section"
@@ -982,7 +951,6 @@
         >
 
 
-
         <div class="button-row">
 
 
@@ -1012,7 +980,6 @@
       </div>
 
 
-
       <div class="divider"></div>
 
 
@@ -1034,15 +1001,10 @@
   </main>
 
 
-
-  <!-- SUPABASE -->
-
   <script
     src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
   ></script>
 
-
-  <!-- EXISTING UPLOAD FUNCTION -->
 
   <script src="script.js"></script>
 
