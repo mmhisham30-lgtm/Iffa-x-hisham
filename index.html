@@ -194,7 +194,7 @@
 
 
     /* =====================================
-       SECOND PAGE - NEW BACKGROUND
+       SECOND PAGE - BACKGROUND
        ===================================== */
 
     .upload-section {
@@ -239,7 +239,7 @@
 
 
     /* =====================================
-       GLASS V2 CARD - MAINTAIN
+       GLASS V2 CARD
        ===================================== */
 
     .card {
@@ -359,13 +359,15 @@
 
       border:
         1px solid
-        rgba(255,255,255,0.80);
+        rgba(255,255,255,0.78);
 
       border-radius:
         14px;
 
+      /* GLASS INPUT */
+
       background:
-        rgba(255,255,255,0.79);
+        rgba(255,255,255,0.62);
 
       color:
         var(--text);
@@ -382,17 +384,27 @@
 
       box-shadow:
         0 4px 16px
-        rgba(39,73,95,0.05);
+        rgba(39,73,95,0.06);
 
       backdrop-filter:
-        blur(2px);
+        blur(4px)
+        saturate(110%);
 
       -webkit-backdrop-filter:
-        blur(2px);
+        blur(4px)
+        saturate(110%);
 
       transition:
         border-color 0.2s ease,
-        box-shadow 0.2s ease;
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+
+    input[type="text"]::placeholder,
+    textarea::placeholder {
+      color:
+        rgba(51,73,85,0.52);
     }
 
 
@@ -409,6 +421,9 @@
     textarea:focus {
       border-color:
         var(--dusty-blue);
+
+      background:
+        rgba(255,255,255,0.72);
 
       box-shadow:
         0 0 0 4px
@@ -677,11 +692,14 @@
     @media (max-width: 600px) {
 
       .photo-hero {
-        height: 85svh;
+        height:
+          85svh;
 
-        min-height: 590px;
+        min-height:
+          590px;
 
-        max-height: 820px;
+        max-height:
+          820px;
       }
 
 
@@ -834,7 +852,15 @@
           16px;
 
         background:
-          rgba(255,255,255,0.80);
+          rgba(255,255,255,0.62);
+
+        backdrop-filter:
+          blur(4px)
+          saturate(110%);
+
+        -webkit-backdrop-filter:
+          blur(4px)
+          saturate(110%);
       }
 
     }
@@ -907,11 +933,9 @@
 
 
       <div class="description">
-
         Share the beautiful moments you captured
         and help us keep the memories of our special
         day forever.
-
       </div>
 
 
